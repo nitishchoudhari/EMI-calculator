@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name=”robots” content=”noindex, follow”>
+    <link rel="stylesheet" href="css/styles.css" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>EMI Calculator</title>
+</head>
+
+<body>
+    <div class="main_container">
+        <h3 id="heading">EMI Calculator</h3>
+        <p id="logo">Powered by  <a href="../../../calculators/emi-calculator/index.html" target="_parent"><img src="assets/logo.png" width="85px"></a></p>
+        <form name="sipForm">
+            <div class="calculator">
+                <div class="i_container">
+                    <div class="i_row">
+                        <label for="inputAmount">Loan Amount</label>
+                        <span>₹<input name="Amount" id="inputAmount" type="number" step="50000" value="1000000"
+                                min="100000" max="10000000" oninput="bizObj.showInputLoanAmt(this.value)"/></span>
+                    </div>
+                    <div class="s_row">
+                        <input class="slider" name="realAmount" id="myAmount" type="range" step="50000" value="1000000"
+                            min="100000" max="10000000"  oninput="bizObj.showInputLoanRate(this.value)"/>
+                    </div>
+                </div>
+
+                <div class="i_container">
+                    <div class="i_row">
+                        <label for="inputRoi">Rate of Interest (P.A)</label>
+                        <span><input name="Returns" id="inputRoi" type="number" value="8.5" min="1" max="30"
+                                step="0.05" oninput="bizObj.showInputPaAmt(this.value)"/>%</span>
+                    </div>
+                    <div class="s_row">
+                        <input class="slider" name="realRoi" id="myRoi" type="range" value="8.5" min="1" max="30"
+                            step="0.05" oninput="bizObj.showInputPaRate(this.value)"/>
+                    </div>
+                </div>
+
+                <div class="i_container">
+                    <div class="i_row">
+                        <label for="inputRoi">Loan Tenure</label>
+                        <span><input name="Years" id="inputYears" type="number" value="10" min="1" step="1" max="30" 
+                        oninput="bizObj.showInputTenureAmt(this.value)"/>Yr</span>
+                    </div>
+                    <div class="s_row">
+                        <input class="slider" name="realYears" id="myYears" type="range" value="10" min="1" step="1"
+                        max="30" oninput="bizObj.showInputTenureRate(this.value)"/>
+                    </div>
+                </div>
+
+                <div class="o_row">
+                    <div>
+                        <p class="r_title">Monthly EMI</p>
+                        <p class="r_value emi" id="r1"></p>
+                    </div>
+                    <div>
+                        <p class="r_title">Principal Amount</p>
+                        <p class="r_value" id="r2"></p>
+                    </div>
+                </div>
+                <div class="o_row">
+                    <div>
+                        <p class="r_title">Total Interest</p>
+                        <p class="r_value" id="r3"></p>
+                    </div>
+                    <div>
+                        <p class="r_title">Total Amount</p>
+                        <p class="r_value" id="r4"></p>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="chart">
+            <canvas id="myChart" width="300" height="300"></canvas>
+            <!-- <div class="cta" id="cta">
+                <a href="#" target="_parent"><button class="cta_btn">INVEST NOW</button></a>
+            </div> -->
+        </div>
+    </div>
+    <script src="js/Chart.min.js"></script>
+    <script src="js/biz.js"></script>
+    <script src="js/render.js"></script>
+</body>
+
+</html>
